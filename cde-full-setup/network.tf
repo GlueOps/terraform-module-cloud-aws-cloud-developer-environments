@@ -19,11 +19,7 @@ module "subnets" {
   public_subnets_enabled  = true
 }
 
-resource "aws_security_group" "cloud-developer-environments" {
-  name        = "cloud-developer-environments"
-  description = "cloud-developer-environments"
-  vpc_id      = module.vpc.vpc_id
-}
+
 
 
 resource "aws_security_group_rule" "cloud-developer-environments_egress_all_ipv4" {
@@ -32,14 +28,14 @@ resource "aws_security_group_rule" "cloud-developer-environments_egress_all_ipv4
   to_port           = 65535
   protocol          = "-1"
   cidr_blocks       = ["0.0.0.0/0"]
-  security_group_id = aws_security_group.cloud-developer-environments.id
+  security_group_id = module.vpc.vpc_default_security_group_id
 }
 
 resource "aws_security_group_rule" "allow_all_within_group" {
-  security_group_id = aws_security_group.cloud-developer-environments.id
   type              = "ingress"
   from_port         = 22
   to_port           = 22
   protocol          = "tcp"
   cidr_blocks       = ["0.0.0.0/0"]
+  security_group_id = module.vpc.vpc_default_security_group_id
 }

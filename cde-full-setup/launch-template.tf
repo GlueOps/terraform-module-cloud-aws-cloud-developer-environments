@@ -13,7 +13,7 @@ resource "aws_launch_template" "full_example" {
 
   network_interfaces {
     associate_public_ip_address = true
-    security_groups             = [aws_security_group.cloud-developer-environments.id]
+    security_groups             = [module.vpc.vpc_default_security_group_id]
     subnet_id                   = module.subnets.public_subnet_ids[0]
   }
 
