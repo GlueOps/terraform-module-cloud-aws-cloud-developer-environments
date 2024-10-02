@@ -11,10 +11,8 @@ jobs:
       - name: Render terraform docs and push changes back to branch
         uses: terraform-docs/gh-actions@v1.3.0
         with:
-          working-dir: .
+          working-dir: cde-full-setup/,cde-iam-setup/
           output-file: README.md
           output-method: inject
           git-push: "true"
-          recursive: true
-          recursive-path: .
           git-commit-message: "docs: automated update of terraform docs"
