@@ -1,13 +1,10 @@
 # https://github.com/glueops/codespaces
 # Credentials are generated in the UI/Console.
 resource "aws_iam_user" "packer" {
-  provider = aws.iam
-  name     = "packer"
+  name = "packer"
 }
 
 resource "aws_iam_policy" "packer" {
-  provider = aws.iam
-
   name        = "packer"
   description = "Used for automated builds via github actions"
 
@@ -26,8 +23,6 @@ resource "aws_iam_policy" "packer" {
 }
 
 resource "aws_iam_user_policy_attachment" "packer" {
-  provider = aws.iam
-
   user       = aws_iam_user.packer.name
   policy_arn = aws_iam_policy.packer.arn
 }
