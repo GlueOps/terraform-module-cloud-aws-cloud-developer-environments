@@ -18,14 +18,16 @@ resource "aws_iam_group_policy_attachment" "password-mgmt" {
   policy_arn = aws_iam_policy.password-mgmt.arn
 }
 
+# Create IAM users using for_each instead of count
 resource "aws_iam_user" "users" {
-  count = length(var.usernames)
-  name  = var.usernames[count.index]
+  for_each = toset(var.usernames)
+  name     = each.key
 }
 
+# Add users to the group
 resource "aws_iam_group_membership" "group_membership" {
   name = "${var.group_name}_membership"
 
-  users = aws_iam_user.users.*.name
+  users = [for user in aws_iam_user.users : user.name]
   group = aws_iam_group.group.name
 }
