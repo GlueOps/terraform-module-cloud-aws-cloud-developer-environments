@@ -1,27 +1,3 @@
-# template
+# terraform-module-cloud-aws-cloud-developer-environments
 
-<!-- BEGIN_TF_DOCS -->
-## Requirements
-
-No requirements.
-
-## Providers
-
-No providers.
-
-## Modules
-
-No modules.
-
-## Resources
-
-No resources.
-
-## Inputs
-
-No inputs.
-
-## Outputs
-
-No outputs.
-<!-- END_TF_DOCS -->
+This repo contains multiple modules to help get our cloud developer AWS accounts configured. See subfolders for more details on each module. 
