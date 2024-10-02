@@ -6,13 +6,13 @@ jobs:
   docs:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4
+      - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4
 
-    - name: Render terraform docs and push changes back to branch
-      uses: terraform-docs/gh-actions@@v1.3.0
-      with:
-        working-dir: .
-        output-file: README.md
-        output-method: inject
-        git-push: "true"
-        git-commit-message: "docs: automated update of terraform docs"
+      - name: Render terraform docs and push changes back to branch
+        uses: terraform-docs/gh-actions@@v1.3.0
+        with:
+          working-dir: .
+          output-file: README.md
+          output-method: inject
+          git-push: "true"
+          git-commit-message: "docs: automated update of terraform docs"
