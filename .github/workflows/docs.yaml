@@ -15,4 +15,5 @@ jobs:
           output-file: README.md
           output-method: inject
           git-push: "true"
+          recursive: true
           git-commit-message: "docs: automated update of terraform docs"
