@@ -14,7 +14,7 @@ No requirements.
 | Name | Source | Version |
 |------|--------|---------|
 | <a name="module_subnets"></a> [subnets](#module\_subnets) | cloudposse/dynamic-subnets/aws | 2.4.2 |
-| <a name="module_vpc"></a> [vpc](#module\_vpc) | cloudposse/vpc/aws | 2.2.0 |
+| <a name="module_vpc"></a> [vpc](#module\_vpc) | cloudposse/vpc/aws | 3.0.0 |
 
 ## Resources
 
